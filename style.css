@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body{
+    overflow-x:  hidden !important;
+}
+section {
+    background-color: black;
+    background-image: url('https://source.unsplash.com/random/1920x1080/?landscape');
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    position: relative;
+    z-index: 0;
+}
+section::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(2px);
+    z-index: -1;
+}
+section .main{
+    min-width: 350px;
+    padding: 20px;   
+}
+.main{
+    background-color: #000000d0;
+    color: white;
+    backdrop-filter: blur(5px);
+    margin: 0 20px;
+}
+.search input{
+    width: 85%;
+    background-color: #7c7c7c2b;
+    color: white;
+}
+.search input::placeholder{
+    color: #ffffff90;
+}
+.search .search-icon{
+    background-color: #7c7c7c2b;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.search input:focus{
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+.weather.loading,.weather.error{    
+    visibility: hidden;
+    position: relative;
+    width: 100%;
+    height: 30px;
+}
+.weather.error::before{
+    visibility: visible;
+    content: "Input field is empty / Please input correct country name.";
+    letter-spacing: 2px;
+    color: #fd7e14;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: ani 1s linear 1s infinite alternate;
+}
+.weather.loading::before{
+    visibility: visible;
+    content: "Loading...";
+    letter-spacing: 4px;
+    color: white;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: ani 1s linear 1s infinite alternate;
+}
+@keyframes ani {
+    0%,100%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.2;
+    }
+}
